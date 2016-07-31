@@ -11,13 +11,14 @@ require.config({
     'angular-sanitize': '../../bower_components/angular-sanitize/angular-sanitize',
     'angular-touch': '../../bower_components/angular-touch/angular-touch',
     bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap',
-    'angular-ui-router': '../../bower_components/angular-ui-router/release/angular-ui-router'
+    'angular-ui-router': '../../bower_components/angular-ui-router/release/angular-ui-router',
+    'angular-route': '../../bower_components/angular-route/angular-route'
   },
   shim: {
     angular: {
       exports: 'angular'
     },
-    'ui.router': [
+    'angular-ui-router': [
       'angular'
     ],
     'angular-cookies': [
@@ -56,7 +57,7 @@ window.name = 'NG_DEFER_BOOTSTRAP!';
 require([
   'angular',
   'app',
-  'ui.router',
+  'angular-ui-router',
   'angular-cookies',
   'angular-sanitize',
   'angular-resource',

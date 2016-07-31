@@ -1,4 +1,4 @@
-define(['angular'], function (angular) {
+define(['angular'], function(angular) {
   'use strict';
 
   /**
@@ -7,14 +7,26 @@ define(['angular'], function (angular) {
    * @description
    * # formatter.phone
    */
-  angular.module('walletHubApp.directives.FormatterPhone', [])
-    .directive('formatter.phone', function () {
-      return {
-        template: '<div></div>',
-        restrict: 'E',
-        link: function postLink(scope, element, attrs) {
-          element.text('this is the formatter.phone directive');
-        }
-      };
-    });
+  angular.module('walletHubApp.directives.formatter.phone', [])
+    .directive('phoneInput', phoneInput);
+
+  function phoneInput(phoneInputHelper) {
+    var phoneInputDirective = {
+      restrict: 'A',
+      require: 'ngModel',
+      link: postLink
+    };
+
+    return phoneInputDirective;
+
+    function postLink(scope, elem, attrs, modelCtrl) {
+      modelCtrl.$formatters.push(phoneInputHelper.toPhoneNumber);
+      modelCtrl.$parsers.push(function(val) {
+        var num = phoneInputHelper.toNumber(val);
+        modelCtrl.$viewValue = phoneInputHelper.toPhoneNumber(num);
+        elem.val(modelCtrl.$viewValue);
+        return num;
+      });
+    }
+  }
 });

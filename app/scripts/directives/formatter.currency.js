@@ -1,4 +1,4 @@
-define(['angular'], function (angular) {
+define(['angular'], function(angular) {
   'use strict';
 
   /**
@@ -7,14 +7,25 @@ define(['angular'], function (angular) {
    * @description
    * # formatter.currency
    */
-  angular.module('walletHubApp.directives.FormatterCurrency', [])
-    .directive('formatter.currency', function () {
-      return {
-        template: '<div></div>',
-        restrict: 'E',
-        link: function postLink(scope, element, attrs) {
-          element.text('this is the formatter.currency directive');
-        }
-      };
-    });
+  angular.module('walletHubApp.directives.formatter.currency', [])
+    .directive('currencyInput', currencyInput);
+
+  function currencyInput(currencyInputHelper) {
+    var currencyDirective = {
+      restrict: 'A',
+      require: 'ngModel',
+      link: postLink
+    };
+    return currencyDirective;
+
+    function postLink(scope, elem, attrs, modelCtrl) {
+      modelCtrl.$formatters.push(currencyInputHelper.filterFunc);
+      modelCtrl.$parsers.push(function(newViewValue) {
+        var newModelValue = currencyInputHelper.toNumber(newViewValue);
+        modelCtrl.$viewValue = currencyInputHelper.filterFunc(newModelValue);
+        elem.val(modelCtrl.$viewValue);
+        return newModelValue;
+      });
+    }
+  }
 });

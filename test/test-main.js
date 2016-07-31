@@ -20,10 +20,11 @@ requirejs.config({
     'angular-messages': '../../bower_components/angular-messages/angular-messages',
     'angular-mocks': '../../bower_components/angular-mocks/angular-mocks',
     'angular-resource': '../../bower_components/angular-resource/angular-resource',
-    'angular-route': '../../bower_components/angular-route/angular-route',
     'angular-sanitize': '../../bower_components/angular-sanitize/angular-sanitize',
     'angular-touch': '../../bower_components/angular-touch/angular-touch',
-    bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap'
+    bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap',
+    'angular-ui-router': '../../bower_components/angular-ui-router/release/angular-ui-router',
+    'angular-route': '../../bower_components/angular-route/angular-route'
   },
 
     shim: {
