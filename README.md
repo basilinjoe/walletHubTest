@@ -1,8 +1,11 @@
 
 # wallet-hub
 
-This project is generated with [yo angular-require generator](https://github.com/aaronallport/generator-angular-require)
-version 3.5.0.
+## Install Dependencies
+
+Run `npm install` ,then
+
+Run `bower install` for building
 
 ## Development & building
 
