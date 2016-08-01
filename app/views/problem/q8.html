@@ -1,2 +1,21 @@
-8) Create 3 inputs each with maximum char. length 5. When entering the 5 th char. in an input the cursor should jump to the next input right after the char. has been inserted. When deleting the 1 st char. of an input the cursor should jump at the end
-of previous input right after that char. has been deleted.
+<div class="panel-heading">Question 8</div>
+<div class="panel-body">
+  <p>
+    8) Create 3 inputs each with maximum char. length 5. When entering the 5 th char. in an input the cursor should jump to the next input right after the char. has been inserted. When deleting the 1 st char. of an input the cursor should jump at the end
+    of previous input right after that char. has been deleted.
+  </p>
+</div>
+<div style="width:50%">
+  <div class="form-group">
+    <label for="">input 1</label>
+    <input id="text1" class="form-control" maxlength="5" type="text" ng-model="item1" change-focus to="text2"><br>
+  </div>
+  <div class="form-group">
+    <label for="">input 2</label>
+    <input id="text2" class="form-control" maxlength="5" type="text" ng-model="item2" change-focus to="text3" from="text1"><br>
+  </div>
+  <div class="form-group">
+    <label for="">input 3</label>
+    <input id="text3" class="form-control" maxlength="5" type="text" ng-model="item3" change-focus from="text2"><br>
+  </div>
+</div>

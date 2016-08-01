@@ -4,6 +4,16 @@
   color: #000;
   padding: 0.2em 0;
 }
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+.bs-callout-info {
+    border-left-color: #1b809e;
+}
 
 body {
   padding: 0;
@@ -57,6 +67,36 @@ body {
 }
 .marketing p + h4 {
   margin-top: 28px;
+}
+
+[ui-view].ng-enter, [ui-view].ng-leave {
+position: absolute;;
+  left: 0;
+  right: 0;
+  -webkit-transition:opacity .25s ease-in-out;
+    -moz-transition:opacity .25s ease-in-out;
+    -o-transition:opacity .25s ease-in-out;
+    transition:opacity .25s ease-in-out;
+}
+
+[ui-view].ng-enter {
+  opacity: 0;
+
+}
+
+[ui-view].ng-enter-active {
+  opacity: 1;
+
+}
+
+[ui-view].ng-leave {
+  opacity: 1;
+
+}
+
+[ui-view].ng-leave-active {
+  opacity: 0;
+  
 }
 
 /* Responsive: Portrait tablets and up */

@@ -9,11 +9,8 @@ define(['angular'], function (angular) {
    * Controller of the walletHubApp
    */
   angular.module('walletHubApp.controllers.AboutCtrl', [])
-    .controller('AboutCtrl', function () {
-      this.awesomeThings = [
-        'HTML5 Boilerplate',
-        'AngularJS',
-        'Karma'
-      ];
+    .controller('AboutCtrl', function ($stateParams) {
+      var ctrl = this;
+      ctrl.qid = $stateParams.id || 1;
     });
 });

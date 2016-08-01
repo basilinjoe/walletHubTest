@@ -8,7 +8,11 @@ define([
   'directives/formatter.currency',
   'services/phoneinputhelper',
   'services/currencyinputhelper',
-  'controllers/problem'
+  'controllers/problem',
+  'controllers/result',
+  'controllers/sort',
+  'controllers/sumup',
+  'directives/changefocus'
 ] /*deps*/ ,
   function(
     angular,
@@ -18,7 +22,12 @@ define([
     FormatterCurrencyDirective,
     PhoneInputHelperService,
     CurrencyInputHelperService,
-    ProblemCtrl)
+    ProblemCtrl,
+    ResultCtrl,
+    SortCtrl,
+    SumUpCtrl,
+    ChangeFocusDirective
+  )
  /*invoke*/
  {
   'use strict';
@@ -40,7 +49,11 @@ define([
       'walletHubApp.services.helper.phone',
       'walletHubApp.services.helper.currency',
       'walletHubApp.controllers.ProblemCtrl',
-      /*angJSDeps*/
+      'walletHubApp.controllers.ResultCtrl',
+'walletHubApp.controllers.SortCtrl',
+'walletHubApp.controllers.SumUpCtrl',
+'walletHubApp.directives.ChangeFocus',
+/*angJSDeps*/
       'ngCookies',
       'ui.router',
       'ngAnimate',
@@ -63,10 +76,16 @@ define([
         })
         .state('problem',{
           url:'/problem/:id',
-          controller:'ProblemCtrl',
-          controllerAs:'ctrl',
           templateUrl:function($stateParams){
             return 'views/problem/'+$stateParams.id+'.html';
+          }
+        })
+        .state('problem.result',{
+          url:'/:data',
+          controller:'ResultCtrl',
+          controllerAs:'ctrl',
+          templateUrl:function($stateParams){
+            return 'views/problem/'+$stateParams.id+'.result.html';
           }
         });
     });

@@ -1,1 +1,15 @@
-2) Provide example on how to pass data between page controllers. Have an input field in one page of which contents is displayed in the second page. Please do not use $rootScope.
+<div class="panel-heading">Question 2</div>
+<div class="panel-body">
+  <p>
+    2) Provide example on how to pass data between page controllers. Have an input field in one page of which contents is displayed in the second page. Please do not use $rootScope.
+  </p>
+</div>
+
+<div ui-view  class="bs-callout bs-callout-info">
+  <div ng-controller="MainCtrl as ctrl" class="input-group">
+    <input class="form-control" type="text" ng-model="ctrl.name">
+    <span class="input-group-btn" id="basic-addon2">
+      <button type="button" class="btn btn-default" ng-click="ctrl.submit()">Submit</button>
+    </span>
+  </div>
+</div>

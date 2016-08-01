@@ -1,9 +1,11 @@
-<div class="">
+<div class="panel-heading">Question 6</div>
+<div class="panel-body">
 <p>
   6) Have a directive that is dependent of ngModel, that restricts the input to numbers only and auto formats the input into currency, ex: $1,234. The field must change its format as user types. Do not create a $filter for this directive as that does
   not mean the directive itself is doing the format.
-
 </p>
-  <input type="text" currency-input ng-model="price">
+</div>
+<div class="" ng-init="price=12000">
+  <input class="form-control" type="text" currency-input ng-model="price">
     <p>Ng-model value : {{price}}</p>
 </div>

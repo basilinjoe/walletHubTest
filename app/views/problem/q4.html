@@ -1,1 +1,42 @@
-4) Create an array of 50 items, each item having 3 properties. Create an option to sort the array by one or two properties. Make the array be filterable by a search input.
+<div class="panel-heading">Question 4</div>
+<div class="panel-body">
+  <p>4) Create an array of 50 items, each item having 3 properties. Create an option to sort the array by one or two properties. Make the array be filterable by a search input.</p>
+</div>
+<table class="table" ng-controller="SortCtrl as ctrl">
+  <thead>
+    <tr>
+      <th ng-click="ctrl.sort('id')">
+        Id
+        <span class="sortorder" ng-show="ctrl.sortBy==='id'" ng-class="{reverse: ctrl.order}"></span>
+      </th>
+      <th ng-click="ctrl.sort('name')">
+        Name
+        <span class="sortorder" ng-show="ctrl.sortBy==='name'" ng-class="{reverse: ctrl.order}"></span>
+      </th>
+      <th ng-click="ctrl.sort('age')">
+        Age
+        <span class="sortorder" ng-show="ctrl.sortBy==='age'" ng-class="{reverse: ctrl.order}"></span>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <input class="form-control" type="text" ng-model="ctrl.search.id">
+      </td>
+      <td>
+        <input class="form-control" type="text" ng-model="ctrl.search.name">
+      </td>
+      <td>
+        <input class="form-control" type="text" ng-model="ctrl.search.age">
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="person in ctrl.persons |filter:ctrl.search:false |orderBy:ctrl.sortBy:ctrl.order">
+      <td>{{::person.id}}</td>
+      <td>{{::person.name}}</td>
+      <td>{{::person.age}}</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>

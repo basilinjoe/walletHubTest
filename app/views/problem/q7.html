@@ -1,1 +1,26 @@
-7) Create 3 number inputs that sum up into an additional field. Editing each of the 3 inputs will always update the sum value. The fourth field can also be editable, and whenever user changes this one its value must be spread across the other 3 fields.
+<div class="panel-heading">Question 7</div>
+<div class="panel-body">
+  <p>
+    7) Create 3 number inputs that sum up into an additional field. Editing each of the 3 inputs will always update the sum value. The fourth field can also be editable, and whenever user changes this one its value must be spread across the other 3 fields.
+  </p>
+</div>
+<div ng-controller="SumUpCtrl as ctrl">
+  <div style="width:50%">
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">S1 :</span>
+      <input type="number" class="form-control" ng-model="ctrl.params.first" ng-model-options="{ debounce: 1000 }" ng-change="ctrl.sumUp()">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">S2 :</span>
+      <input type="number" class="form-control" ng-model="ctrl.params.second" ng-model-options="{ debounce: 1000 }" ng-change="ctrl.sumUp()">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">S3 :</span>
+      <input type="number" class="form-control" ng-model="ctrl.params.third" ng-model-options="{ debounce: 1000 }" ng-change="ctrl.sumUp()">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">S1+S2+S3 :</span>
+      <input type="number" class="form-control" ng-model="ctrl.sum" ng-model-options="{ debounce: 1000 }" ng-change="ctrl.spreadValues()">
+    </div>
+  </div>
+</div>
